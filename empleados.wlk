@@ -13,22 +13,31 @@ object gimenez {
 
     method pagarSueldo(empleado) {
         fondo = fondo - empleado.sueldo()
+        empleado.cobrarSueldo()
     }
 
 }
 
 object galvan {
     var sueldo = 15000
+   
     method sueldo() {
         return sueldo
     }
+
     method sueldo(_sueldo) {
         sueldo = _sueldo
     }
+    method cobrarSueldo() {
+
+    }
+
+
 }
 object baigorria {
     var empanadasVendidas = 0
     const precioPorEmpanada = 15
+    var totalCobrado = 0
 
     method sueldo(){
         return empanadasVendidas * precioPorEmpanada
@@ -38,5 +47,13 @@ object baigorria {
         empanadasVendidas += empanadas
     }
 
+    method cobrarSueldo() {
+        totalCobrado += self.sueldo() 
+        empanadasVendidas = 0
+    }
 
+    method totalCobrado() {
+        return totalCobrado
+    }
+    
 }
